@@ -25,6 +25,11 @@ impl Guess {
     }
 }
 
+pub fn prints_and_returns_10(a: i32) -> i32 {
+    println!("I got the value {}", a);
+    a
+}
+
 pub fn add(left: usize, right: usize) -> usize {
     left + right
 }
@@ -48,6 +53,12 @@ mod tests {
         } else {
             Err(String::from("two plus two does not equal four"))
         }
+    }
+
+    #[test]
+    fn print_and_return() {
+        let value = prints_and_returns_10(10);
+        assert_eq!(10, value);
     }
 
     #[test]
@@ -114,6 +125,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore]
     fn two_plus_two() {
         assert_eq!(4, add_two(2));
     }
